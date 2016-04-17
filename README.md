@@ -20,3 +20,9 @@ In neural network, we usually randomly initialize weights before training. How t
 2. ssh docker container: `docker run -i -t <docker-id> /bin/bash`
 3. install packages
 4. commit container to a new named image: `docker commit <container> <some_name>`
+
+## DOCKER CREATE IAMGE AND CONTAINERS
+1. go to the project fold which contains file `Dockerfile`
+2. run docker build to build the image: `docker build --pull -t <docker image tag> .`
+3. run docker create to create a container as data storage: `docker create -v /Users/xuan/Personal/github_repository/docker-container-data --name data-storage xuan/deep-learning-version1 /bin/true`
+4. run docker run to create a container as application: `docker run -d --volumes-from data-storage --name <container-name> xuan/deep-learning-version1` 
